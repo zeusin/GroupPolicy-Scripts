@@ -1,0 +1,2 @@
+setupdrv.exe install
+pause
