@@ -133,15 +133,15 @@ _SQLite_Close($bbddnombre)
 MsgBox(0,"",$noval)
 MsgBox(0,"",$arow[0])
 
-
-if $noval = 101 then 
-   MsgBox(0,"","insert into puestos...")
-   exit
-EndIf
-
 ; hay que añadir validacion de si no existe la extension en la base de datos
 $extensionpuesto = RegRead($ClavePuesto, $puesto)
 $ipservidor = RegRead($ClaveServer, "ServerAddress")
+
+if $noval = 101 then 
+   _FileWriteLog($logsroute , @ComputerName & " " & $extensionpuesto & " no esta en base de datos")
+   exit
+EndIf
+
 
 if $arow[0] <> $extensionpuesto then
    RegWrite($ClavePuesto, "puesto", "REG_SZ", $arow[0])
@@ -152,6 +152,6 @@ if $arow[1] <> $ipservidor then
    RegWrite($ClaveServer, "ServerAddress", "REG_SZ", $arow[1])
    RegWrite($claveServer2, "EvoServerAddress", "REG_SZ", $arow[1])
    _FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " Cambia direccion de servidor " & $ipservidor & " por " & $arow[1]")
-EndIf
+   EndIf
 
 Endfunc
