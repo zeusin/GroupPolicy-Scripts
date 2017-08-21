@@ -102,6 +102,9 @@ if  $mayormenor = "-1" Then
     While ProcessExists("iagent.exe")
         ProcessClose("iagent.exe")
     WEnd
+    While ProcessExists("evophone.exe")
+        ProcessClose("evophone.exe")
+    WEnd
     $ipid = Run(@ComSpec & ' /c ' & '"' & $Programfile & '\Evolution\Agente\uninst_Evolution_iAgent.exe" /S')
 	processWaitClose($iPID)
 	_FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " inicia desinstalación de iagent version" & $version & " ,no se admiten versiones superiores", 1)
