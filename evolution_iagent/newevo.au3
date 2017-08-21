@@ -127,7 +127,7 @@ If @error Then
     Exit
 EndIf
 
-_SQLite_Query(-1, "select extporord.puestos,servidor from extporord,extensiones where extporord.nombrepc='PC001';", $salida)
+_SQLite_Query(-1, "select extporord.puestos,servidor from extporord,extensiones where extporord.nombrepc='" & @computername & "';", $salida)
 $noval = _SQLite_FetchData($salida, $aRow)
 _SQLite_Close($bbddnombre)
 MsgBox(0,"",$noval)
