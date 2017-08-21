@@ -134,7 +134,7 @@ MsgBox(0,"",$noval)
 MsgBox(0,"",$arow[0])
 
 
-if $noval = 101 then MsgBox(0,"","Añadir a base de datos")
+if $noval = 101 then MsgBox(0,"","insert into puestos...")
    exit
 
 ; hay que añadir validacion de si no existe la extension en la base de datos
