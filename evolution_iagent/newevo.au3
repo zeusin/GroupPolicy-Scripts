@@ -151,8 +151,7 @@ EndIf
 if $arow[1] <> $ipservidor then
    RegWrite($ClaveServer, "ServerAddress", "REG_SZ", $arow[1])
    RegWrite($claveServer2, "EvoServerAddress", "REG_SZ", $arow[1])
-   _FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " Cambia direccion de servidor $ip servidor por $arow[1]"
-
+   _FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " Cambia direccion de servidor " & $ipservidor & " por " & $arow[1]")
 EndIf
 
 Endfunc
