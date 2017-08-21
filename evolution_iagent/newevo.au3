@@ -20,8 +20,8 @@
 
 
 $UltimaVersion = "10.6.2313.218"   ;Version Evolution 10.6 V2 "10.6.2313.218" | v1"10.6.2313.121"
-$rutared = "\\192.168.55.114\descargas\iagent.txt"
-$rutalocal = "C:\iagent.txt"
+$rutared = "\\192.168.55.114\descargas\iagentscript.txt"
+$rutalocal = "C:\programdata\evolution\logs\iagentscript.txt"
 $clavecompatibilidad = 0 ; clave de compatibilidad de internet explorer, 0 desactiva la ejecucion
 $dlllocation = "SQLite3.dll"
 $bbddnombre = @ScriptDir & "\puestos.db"
