@@ -134,8 +134,10 @@ MsgBox(0,"",$noval)
 MsgBox(0,"",$arow[0])
 
 
-if $noval = 101 then MsgBox(0,"","insert into puestos...")
+if $noval = 101 then 
+   MsgBox(0,"","insert into puestos...")
    exit
+EndIf
 
 ; hay que añadir validacion de si no existe la extension en la base de datos
 $extensionpuesto = RegRead($ClavePuesto, $puesto)
