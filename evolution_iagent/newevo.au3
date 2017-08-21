@@ -75,7 +75,7 @@ EndSelect
 Func instalar()
 
 FileCopy(@ScriptDir & "\iagent_" & $ultimaversion & ".exe" , "C:\")
-$ipid = Run("C:\iagent_" & $ultimaversion & ".exe /S /EvoServerAddress=172.16.0.25 " & '"/PuestoTrabajo=NoCfg"')
+$ipid = Run("C:\iagent_" & $ultimaversion & ".exe /S /EvoServerAddress=127.0.0.1 " & '"/PuestoTrabajo=NoCfg"')
 processWaitClose($iPID)
 
 $version = stringreplace(StringReplace(FileGetVersion($Programfile & '\Evolution\Agente\iAgent.exe',  $FV_PRODUCTVERSION), "BUILD", "")," ", ".")
