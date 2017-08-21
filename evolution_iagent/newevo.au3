@@ -85,7 +85,6 @@ if $version = $ultimaversion Then
     _FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " fallo en la instalacion de iagent " & $version, 1)
 EndIf
 
-FileDelete("C:\iagent_" & $ultimaversion & ".exe")
 ;esto hay que mejorarlo
   $a = 1
    while $a <10
