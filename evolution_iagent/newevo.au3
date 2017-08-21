@@ -145,11 +145,14 @@ $ipservidor = RegRead($ClaveServer, "ServerAddress")
 
 if $arow[0] <> $extensionpuesto then
    RegWrite($ClavePuesto, "puesto", "REG_SZ", $arow[0])
+   _FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " Cambia la extension $extensionpuesto por $arow[0]"
 EndIf
 
 if $arow[1] <> $ipservidor then
    RegWrite($ClaveServer, "ServerAddress", "REG_SZ", $arow[1])
    RegWrite($claveServer2, "EvoServerAddress", "REG_SZ", $arow[1])
+   _FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " Cambia direccion de servidor $ip servidor por $arow[1]"
+
 EndIf
 
 Endfunc
