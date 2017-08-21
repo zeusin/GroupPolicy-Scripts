@@ -138,20 +138,20 @@ $extensionpuesto = RegRead($ClavePuesto, $puesto)
 $ipservidor = RegRead($ClaveServer, "ServerAddress")
 
 if $noval = 101 then 
-   _FileWriteLog($logsroute , @ComputerName & " " & $extensionpuesto & " no esta en base de datos")
+   _FileWriteLog($logsroute , @ComputerName & " " & $extensionpuesto & " no esta en base de datos", 1)
    exit
 EndIf
 
 
 if $arow[0] <> $extensionpuesto then
    RegWrite($ClavePuesto, "puesto", "REG_SZ", $arow[0])
-   _FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " Cambia la extension " & $extensionpuesto & " por " & $arow[0])
+   _FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " Cambia la extension " & $extensionpuesto & " por " & $arow[0], 1)
 EndIf
 
 if $arow[1] <> $ipservidor then
    RegWrite($ClaveServer, "ServerAddress", "REG_SZ", $arow[1])
    RegWrite($claveServer2, "EvoServerAddress", "REG_SZ", $arow[1])
-   _FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " Cambia direccion de servidor " & $ipservidor & " por " & $arow[1])
+   _FileWriteLog($logsroute , @ComputerName & " " & @OSArch & " Cambia direccion de servidor " & $ipservidor & " por " & $arow[1], 1)
    EndIf
 
 Endfunc
