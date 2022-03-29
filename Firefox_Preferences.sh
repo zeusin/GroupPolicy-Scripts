@@ -1,0 +1,36 @@
+#!/bin/bash
+###Cambia preferencias predeterminadas de firefox
+########################
+
+find /home/*/.mozilla/firefox/*.default* -maxdepth 0 -print0 | while read -d $'\0' file
+do
+ if [ ! -f "$file/user.js" ]; then
+  touch "$file/user.js"
+   echo "se crea $file ---------------------"
+ fi
+done
+
+CambiarPreferencia () {
+find /home/*/.mozilla/firefox/*.default* -maxdepth 0 -print0 | while read -d $'\0' file
+do
+ echo "estamos en $file parametro $1"
+ Coincidencia=`grep -R 'user_pref('"$1"', *' "$file/user.js"`
+ if [ $? -eq 1 ]; then
+ echo 'user_pref('$1', '$2');' >> "$file/user.js"
+  echo "nuevo"
+ else
+  Condition=`echo $Coincidencia | cut -d"," -f2 | sed -e 's/)/\ /' | sed -e 's/;/\ /' `
+  if [ $Condition == $2 ]; then
+    echo "ok default"
+  else
+    sed -i 's#'"$Coincidencia"'#user_pref('"$1"', '"$2"');#g' "$file/user.js"
+    echo "se cambia"
+  fi
+ fi
+done
+}
+
+#Establece las paginas por defecto
+CambiarPreferencia '"browser.startup.homepage"' '"https://google.com|https://github.com"'
+CambiarPreferencia '"browser.startup.page"' '1'
+#----------------------------------
