@@ -37,7 +37,7 @@ done < $ruta
 #######################INTRODUCIR PARAMETROS A PARTIR DE AQUI#############################################################
 
 #Establece las paginas por defecto
-CambiarPreferencia '"browser.startup.homepage"' '"http://intranet.tdnonline.com/PortalEmpleado|http://verne.tdnonline.com/produccion/index.jsp"'
+CambiarPreferencia '"browser.startup.homepage"' '"https://google.es|https://github.com"'
 CambiarPreferencia '"browser.startup.page"' '1'
 #----------------------------------
 
