@@ -23,7 +23,8 @@ do
  echo 'user_pref('$1', '$2');' >> "$file/user.js"
   echo "nuevo"
  else
-  Condition=`echo $Coincidencia | cut -d"," -f2 | sed -e 's/)/\ /' | sed -e 's/;/\ /' `
+  ##########Precaucion con el cut... si hay algun espacio dentro del parametro $condition y $2 no se respetaria porque limpia espacios
+  Condition=`echo $Coincidencia | cut -d" " -f2 | sed -e 's/)/\ /' | sed -e 's/;/\ /' `
   if [ $Condition == $2 ]; then
     echo "ok default"
   else
@@ -39,6 +40,7 @@ done < $ruta
 #Establece las paginas por defecto
 CambiarPreferencia '"browser.startup.homepage"' '"https://google.es|https://github.com"'
 CambiarPreferencia '"browser.startup.page"' '1'
+CambiarPreferencia '"network.proxy.no_proxies_on"' '"localhost,.gitgub.com,.google.es"'
 #----------------------------------
 
 #########################################################################################################################
